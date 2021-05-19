@@ -60,10 +60,7 @@
         script.text = code;
         doc.head.appendChild( script ).parentNode.removeChild( script );
     }
-    /* global Symbol */
-// Defining this global in .eslintrc.json would create a danger of using the global
-// unguarded in another place, it seems safer to define global only for this module
-
+    
 
 
     var
@@ -113,8 +110,7 @@
             return num < 0 ? this[ num + this.length ] : this[ num ];
         },
 
-        // Take an array of elements and push it onto the stack
-        // (returning the new matched element set)
+        
         pushStack: function( elems ) {
 
             // Build a new jQuery matched element set
@@ -260,23 +256,18 @@
 
         isNumeric: function( obj ) {
 
-            // As of jQuery 3.0, isNumeric is limited to
-            // strings and numbers (primitives or objects)
-            // that can be coerced to finite numbers (gh-2662)
+          
             var type = jQuery.type( obj );
             return ( type === "number" || type === "string" ) &&
 
-                // parseFloat NaNs numeric-cast false positives ("")
-                // ...but misinterprets leading-number strings, particularly hex literals ("0x...")
-                // subtraction forces infinities to NaN
+                
                 !isNaN( obj - parseFloat( obj ) );
         },
 
         isPlainObject: function( obj ) {
             var proto, Ctor;
 
-            // Detect obvious negatives
-            // Use toString instead of jQuery.type to catch host objects
+            
             if ( !obj || toString.call( obj ) !== "[object Object]" ) {
                 return false;
             }
@@ -9952,10 +9943,7 @@
                 return;
             }
 
-            // Return zeros for disconnected and hidden (display: none) elements (gh-2310)
-            // Support: IE <=11 only
-            // Running getBoundingClientRect on a
-            // disconnected node in IE throws an error
+          
             if ( !elem.getClientRects().length ) {
                 return { top: 0, left: 0 };
             }
@@ -10013,16 +10001,7 @@
             };
         },
 
-        // This method will return documentElement in the following cases:
-        // 1) For the element inside the iframe without offsetParent, this method will return
-        //    documentElement of the parent window
-        // 2) For the hidden or detached element
-        // 3) For body or html element, i.e. in case of the html node - it will return itself
-        //
-        // but those exceptions were never presented as a real life use-cases
-        // and might be considered as more preferable results.
-        //
-        // This logic, however, is not guaranteed and can change at any point in the future
+        
         offsetParent: function() {
             return this.map( function() {
                 var offsetParent = this.offsetParent;
@@ -10068,12 +10047,7 @@
         };
     } );
 
-// Support: Safari <=7 - 9.1, Chrome <=37 - 49
-// Add the top/left cssHooks using jQuery.fn.position
-// Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084
-// Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
-// getComputedStyle returns percent when specified for top/left/bottom/right;
-// rather than make the css module depend on the offset module, just check for it here
+
     jQuery.each( [ "top", "left" ], function( i, prop ) {
         jQuery.cssHooks[ prop ] = addGetHookIf( support.pixelPosition,
             function( elem, computed ) {
@@ -10172,18 +10146,7 @@
 
 
 
-// Register as a named AMD module, since jQuery can be concatenated with other
-// files that may use define, but not via a proper concatenation script that
-// understands anonymous AMD modules. A named AMD is safest and most robust
-// way to register. Lowercase jquery is used because AMD module names are
-// derived from file names, and jQuery is normally delivered in a lowercase
-// file name. Do this after creating the global so that if an AMD module wants
-// to call noConflict to hide this version of jQuery, it will work.
 
-// Note that for maximum portability, libraries that are not jQuery should
-// declare themselves as anonymous modules, and avoid setting a global if an
-// AMD loader is present. jQuery is a special case. For more information, see
-// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
     if ( typeof define === "function" && define.amd ) {
         define( "jquery", [], function() {
@@ -10214,9 +10177,7 @@
         return jQuery;
     };
 
-// Expose jQuery and $ identifiers, even in AMD
-// (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
-// and CommonJS for browser emulators (#13566)
+
     if ( !noGlobal ) {
         window.jQuery = window.$ = jQuery;
     }
