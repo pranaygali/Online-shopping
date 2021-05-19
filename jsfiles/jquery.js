@@ -60,9 +60,7 @@
         script.text = code;
         doc.head.appendChild( script ).parentNode.removeChild( script );
     }
-    /* global Symbol */
-// Defining this global in .eslintrc.json would create a danger of using the global
-// unguarded in another place, it seems safer to define global only for this module
+    
 
 
 
@@ -83,14 +81,14 @@
         rmsPrefix = /^-ms-/,
         rdashAlpha = /-([a-z])/g,
 
-        // Used by jQuery.camelCase as callback to replace()
+      
         fcamelCase = function( all, letter ) {
             return letter.toUpperCase();
         };
 
     jQuery.fn = jQuery.prototype = {
 
-        // The current version of jQuery being used
+      
         jquery: version,
 
         constructor: jQuery,
@@ -115,14 +113,13 @@
             return num < 0 ? this[ num + this.length ] : this[ num ];
         },
 
-        // Take an array of elements and push it onto the stack
-        // (returning the new matched element set)
+        
         pushStack: function( elems ) {
 
-            // Build a new jQuery matched element set
+          
             var ret = jQuery.merge( this.constructor(), elems );
 
-            // Add the old object onto the stack (as a reference)
+          
             ret.prevObject = this;
 
             // Return the newly-formed element set
@@ -176,16 +173,16 @@
             length = arguments.length,
             deep = false;
 
-        // Handle a deep copy situation
+      
         if ( typeof target === "boolean" ) {
             deep = target;
 
-            // Skip the boolean and the target
+         
             target = arguments[ i ] || {};
             i++;
         }
 
-        // Handle case when target is a string or something (possible in deep copy)
+      
         if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
             target = {};
         }
