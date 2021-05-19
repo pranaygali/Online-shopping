@@ -1,19 +1,4 @@
-/**
- * Created by Nishant on 6/8/2017.
- */
-/*!
- * jQuery JavaScript Library v3.2.1
- * https://jquery.com/
- *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://jquery.org/license
- *
- * Date: 2017-03-20T18:59Z
- */
+
 ( function( global, factory ) {
 
     "use strict";
