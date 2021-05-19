@@ -18,7 +18,6 @@
         factory( global );
     }
 
-// Pass this if window is not defined yet
 } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 
@@ -100,16 +99,14 @@
             return slice.call( this );
         },
 
-        // Get the Nth element in the matched element set OR
-        // Get the whole matched element set as a clean array
         get: function( num ) {
 
-            // Return all the elements in a clean array
+          
             if ( num == null ) {
                 return slice.call( this );
             }
 
-            // Return just the one element from the set
+        
             return num < 0 ? this[ num + this.length ] : this[ num ];
         },
 
@@ -126,7 +123,7 @@
             return ret;
         },
 
-        // Execute a callback for every element in the matched set.
+      
         each: function( callback ) {
             return jQuery.each( this, callback );
         },
@@ -159,8 +156,7 @@
             return this.prevObject || this.constructor();
         },
 
-        // For internal use only.
-        // Behaves like an Array's method, not like a jQuery method.
+       
         push: push,
         sort: arr.sort,
         splice: arr.splice
@@ -208,7 +204,6 @@
                         continue;
                     }
 
-                    // Recurse if we're merging plain objects or arrays
                     if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
                         ( copyIsArray = Array.isArray( copy ) ) ) ) {
 
@@ -223,7 +218,6 @@
                         // Never move original objects, clone them
                         target[ name ] = jQuery.extend( deep, clone, copy );
 
-                        // Don't bring in undefined values
                     } else if ( copy !== undefined ) {
                         target[ name ] = copy;
                     }
